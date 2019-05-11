@@ -4,7 +4,7 @@
 
 using namespace std;
 
-using graph = vector<vector<int>>;
+using graph = vector<vector<int> >;
 
 const int none = -1;
 vector<int> order, rankk, parent;
