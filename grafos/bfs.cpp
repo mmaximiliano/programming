@@ -11,7 +11,8 @@ using tree = vector<int>;
 const int none = -1;
 
 pair<tree, vector<int> > BFS(const graph& G, int r) {
-  tree T(G.size(), none); vector<int> d(G.size(),-1);
+  tree T(G.size(), none); 
+  vector<int> d(G.size(),-1);
   deque<pair<int,int> > cola{{r,r}};
   while(not cola.empty()) {
     int v, p; tie(v,p) = cola.front();
