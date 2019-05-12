@@ -31,7 +31,7 @@ typedef unsigned long long ull;
 typedef vector<int> vi;
 typedef pair<int,int> pii;
 
-const int inf = (int)1e9 + 7;
+const int inf = INT_MAX;
 const int mod = (int)1e9 + 7;
 const ll linf = (ll)1e18 + 7;
 
