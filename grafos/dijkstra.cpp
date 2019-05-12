@@ -37,7 +37,7 @@ int main() {
     if(T[w] == none) {
       T[w] = v; D[w] = -c;
       for(auto x : G[w]) if(T[vecino(x)] == none)
-        S.push({c-costo(x), w, vecino(x)});
+        S.push({c-costo(x), w, vecino(x)}); //le sumo mi distancia y hago push
     }
   }
   
