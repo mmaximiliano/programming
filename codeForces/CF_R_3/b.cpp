@@ -37,13 +37,60 @@ const ll linf = (ll)1e18 + 7;
 
 
 int main() {
-	ll a, b, c;
-	cin >> a >> b >> c;
+	ll n, m, ta, tb, K;
+	cin >> n >> m >> ta >> tb >> K;
 	
-	if(a != b)
-	cout << min(a, b)*2 + 1 + c*2 <<"\n";
-	else
-	cout << a*2+c*2 << "\n";
+	vector<ll> ab;
+	vector<ll> bc;
+	int k = 0;
+	int ind_a = 0;
+	int ind_b = 0;
+
+	if(K >= min(n,m)){
+		cout << -1 <<"\n";
+		return 0;
+	}
+	for(int i = 0; i<n;++i){
+		ll a; cin >> a;
+		ab.pb(a+ta);
+	}
+	for(int i = 0; i<m;++i){
+		ll b; cin >> b;
+		if(b<ab[0]) continue;
+		bc.pb(b);
+	}
+
+	while((ind_a < n-1) && (ind_b < m-1) && k < K){ 
+		if(ab[ind_a + 1] > bc[ind_b]){
+			ind_b = lower_bound(bc.begin()+ind_b, bc.end(), ab[ind_a+1]) - bc.begin();
+			ind_a++;
+			k++;
+		}else{
+			ind_b++;
+			k++;
+		}
+	}
+
+	if(k < K || K == n || K == m){
+		cout << -1 <<"\n";
+	}else{
+		cout << bc[ind_b] + tb <<"\n";
+ 	}
 
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
