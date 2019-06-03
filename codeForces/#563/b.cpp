@@ -48,14 +48,15 @@ int main() {
 		ll j;
 		cin>>j;
 		if(j % 2 == 0) par.pb(j);
-		else impar.pb(j); 
+		else impar.pb(j);
+		a[i] = j;
 	}
-
+	if(impar.size() > 0 && par.size() > 0){
 	sort(par.begin(),par.end());
 	sort(impar.begin(), impar.end());
 
 	merge(par.begin(),par.end(), impar.begin(), impar.end(), a.begin());
-
+	}
 
 	for(int j =0; j<n-1;++j){
 		cout<<a[j]<< ' ';
