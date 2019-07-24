@@ -37,13 +37,48 @@ const ll linf = (ll)1e18 + 7;
 
 //---------------------main-------------------------//
 
+
+int f(int &m, int n, int k, vi* v){
+	if(k == 1){
+		int res = v[n];
+		return res;
+	}
+	if(m[n][k] != inf) return m[n][k];
+	else {
+		int j = inf;
+		rep(i,0,n-1){
+			j = min(j, f(&m, n-j, k-1, &v) + v[n] - v[n-j]);
+		}
+		m[n][k] = j;
+		return m[n][k];
+	}
+}
+
+
 int main() {
-	int T;
-	cin >> T;
-	int n;
+	int n, k;
+	cin >> n >> k;
+	int m[n][k];
 	
+	vi v(n);
+	int j;
 
+	if(k==n){
+		cout << 0 << "\n";
+		return 0;
+	}
+	rep(i,0,n-1){
+		cin >> j;
+		v[i] = j;
+	}
 
+	rep(i,0,n-1){
+		rep(j,0,k-1){
+			m[i][j] = inf;
+		}
+	}
+		
+	cout << f(&m, n, k, &v) <<"\n";
 
 
 	return 0;

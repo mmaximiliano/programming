@@ -42,6 +42,30 @@ int main() {
 	cin >> T;
 	int n;
 	
+	rep(t,0,T-1){
+		cin >> n;
+		vi tams(n);
+
+		rep(i,0,n-1) cin >> tams[i]; 
+
+		if(n<=2){
+			cout << 0 <<"\n";
+		}else{
+			sort(all(tams));
+			bool hayEscalera = false;
+			for(int k = tams.size()-1; k > 1; --k){
+				if(tams[k-1] >= k){
+					cout << k - 1 << "\n";
+					hayEscalera = true;
+					break;
+				}
+			}
+			if(!hayEscalera){
+				cout << 0 << "\n";
+			}
+		}
+
+	}
 
 
 
