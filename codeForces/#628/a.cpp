@@ -28,12 +28,19 @@ const ll linf = (ll)1e18 + 7;
 //---------------------main-------------------------//
 
 int main() {
-	int T;
+	ull T, x, a, b;
 	cin >> T;
-	int n;
-	
+	for (int i = 0; i < T; ++i){
+		cin >> x;
+		if(x==2){
+			cout << 1 << "\n";
+			cout << 1 << "\n";
+		}else{
+			cout << 1 << "\n";
+			cout << x - 1 << "\n";
+		}
 
-
+	}
 
 
 	return 0;
