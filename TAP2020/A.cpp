@@ -28,16 +28,19 @@ const ll linf = (ll)1e18 + 7;
 //---------------------main-------------------------//
 
 int main() {
-	double N, A, B;
-	
-	double expected = 0;
-	double size = abs(A-B);
-	for(int i = A; i < B; i++){
+	long double N, A, B;
+	cin >> N >> A >> B;
+
+	long double expected = 0;
+	long double size = abs(A-B) + 1;
+	for(int i = A; i <= B; i++){
 		expected += i;
 	}
 
 	expected /= size;
 	expected = N / expected;
+
+	expected += A == 0 ? (A+1)/size : A/size;
 
 	cout << expected << endl;
 
